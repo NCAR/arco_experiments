@@ -1,0 +1,20 @@
+#!/bin/bash
+#PBS -N netcdf_to_zarr
+#PBS -A YOUR_PROJECT_CODE
+#PBS -q regular
+#PBS -l select=1:ncpus=36:mem=128GB
+#PBS -l walltime=01:00:00
+#PBS -j oe
+#PBS -m abe
+#PBS -M harshah@ucar.edu
+
+# Load required modules
+module load conda
+conda activate your_dask_env
+
+# Change to the directory where the job was submitted
+cd $PBS_O_WORKDIR
+
+# Python script for conversion
+python convert_to_zarr.py
+
